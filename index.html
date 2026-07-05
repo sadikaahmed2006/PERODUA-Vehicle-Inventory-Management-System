@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vehicle Inventory Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="title">VEHICLE<span>.</span>INVENTORY</div>
+    <div class="sub">stock control // co-op mini project</div>
+  </div>
+  <div class="sub" id="clock"></div>
+</header>
+
+<div class="layout">
+  <div class="col col-left">
+    <div class="block-label">Add Vehicle</div>
+    <form id="addForm">
+      <div class="row2">
+        <div><label>Make</label><input id="f-make" placeholder="Perodua" required></div>
+        <div><label>Model</label><input id="f-model" placeholder="Myvi" required></div>
+      </div>
+      <div class="row2">
+        <div><label>Year</label><input id="f-year" type="number" placeholder="2023" required></div>
+        <div><label>Price (BDT)</label><input id="f-price" type="number" placeholder="3500000" required></div>
+      </div>
+      <div>
+        <label>VIN / Plate No.</label>
+        <input id="f-vin" placeholder="Dhaka Metro Ga 11-1234" required>
+      </div>
+      <div>
+        <label>Status</label>
+        <select id="f-status">
+          <option value="Available">Available</option>
+          <option value="Reserved">Reserved</option>
+          <option value="Sold">Sold</option>
+        </select>
+      </div>
+      <button type="submit">+ Add to inventory</button>
+    </form>
+
+    <div class="block-label">Report Summary</div>
+    <div class="stats">
+      <div class="stat total"><div class="num" id="s-total">0</div><div class="lbl">Total units</div></div>
+      <div class="stat available"><div class="num" id="s-avail">0</div><div class="lbl">Available</div></div>
+      <div class="stat reserved"><div class="num" id="s-res">0</div><div class="lbl">Reserved</div></div>
+      <div class="stat sold"><div class="num" id="s-sold">0</div><div class="lbl">Sold</div></div>
+    </div>
+    <div class="totals">
+      Total inventory value: <span class="price" id="s-value">৳0</span><br>
+      Avg. listed price: <span class="price" id="s-avg">৳0</span>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="block-label">Search Inventory</div>
+    <div class="search-bar">
+      <input id="searchInput" placeholder="Search make, model, or VIN...">
+      <select id="searchStatus">
+        <option value="">All statuses</option>
+        <option value="Available">Available</option>
+        <option value="Reserved">Reserved</option>
+        <option value="Sold">Sold</option>
+      </select>
+      <button class="ghost" id="clearSearch" type="button">Clear</button>
+    </div>
+
+    <div id="tableWrap"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
